@@ -1,15 +1,14 @@
-export const ShopItemFunc = ({ item }) => {
-
-    const formatPrice = `${item.currency}${item.price.toFixed(2)}`;
+export const ShopItemFunc = (props) => {
+    const { item } = props;
+    const { brand, currency, description, descriptionFull, price, title } = item;
+    const formatPrice = `${currency}${price.toFixed(2)}`;
 
     return (
         <div className="main-content">
-            <h2>{item.brand}</h2>
-            <h1>{item.title}</h1>
-            <h3>{item.description}</h3>
-            <div className="description">
-                {item.descriptionFull}
-            </div>
+            <h2>{brand}</h2>
+            <h1>{title}</h1>
+            <h3>{description}</h3>
+            <div className="description">{descriptionFull}</div>
             <div className="highlight-window mobile">
                 <div className="highlight-overlay"></div>
             </div>
@@ -20,4 +19,4 @@ export const ShopItemFunc = ({ item }) => {
             </div>
         </div>
     );
-}
+};
